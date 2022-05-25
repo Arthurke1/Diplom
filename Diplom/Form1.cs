@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+
 namespace Diplom
 {
     public partial class Form1 : Form
     {
+       
         // строка подключения к БД
         string connStr = "server=chuc.caseum.ru;port=33333;user=st_1_18_3;database=is_1_18_st3_VKR;password=77651256;";
         //Переменная соединения
@@ -44,13 +47,24 @@ namespace Diplom
             // объект для выполнения SQL-запроса
             MySqlCommand command = new MySqlCommand(sql, conn);
             // объект для чтения ответа сервера
-          //  MySqlDataReader reader = command.ExecuteReader();       НЕ НУЖНО!!!!!!!!!!!!!!!!!!
+            MySqlDataReader reader = command.ExecuteReader();
+            // читаем результат
+            while (reader.Read())
+            {
+                // элементы массива [] - это значения столбцов из запроса SELECT
+                Auth.auth_id = reader[0].ToString();
+                Auth.auth_fio = reader[1].ToString();
+                Auth.auth_role = Convert.ToInt32(reader[4].ToString());
+            }
+            reader.Close(); // закрываем reader
             // закрываем соединение с БД
             conn.Close();
         }
         public Form1()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#EAE7DC");
+            Animator.Start();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -58,14 +72,26 @@ namespace Diplom
             conn = new MySqlConnection(connStr);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+        //    {
+        //        this.Close();
+        //    }
+        //}
+
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            {
-                this.Close();
-            }
+           //textBox3.Text = sha256(textBox2.Text);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            //В текстбокс3 формируется хэш по мере ввода текста во второй текстбокс, используется метод шифрования (хэширования)
+            textBox3.Text = sha256(textBox2.Text);
+        }
+
+        private void yt_Button1_Click(object sender, EventArgs e)
         {
             //Запрос в БД на предмет того, если ли строка с подходящим логином и паролем
             string sql = "SELECT * FROM auth WHERE login = @un and  password = @up";
@@ -93,11 +119,22 @@ namespace Diplom
             if (table.Rows.Count > 0)
             {
                 //Присваеваем глобальный признак авторизации
-                //Form1.auth = true;
+                Auth.auth = true;
+                // при удачной авторизации
+                ///// MessageBox.Show("Добро пожаловать :3");             ДОБАВИТЬ ПОТОМ!
+
+
+
+
+
                 //Достаем данные пользователя в случае успеха
                 GetUserInfo(textBox1.Text);
+
+                // переход на другую форму
+                Form2 frm = new Form2();
+                frm.ShowDialog();
                 //Закрываем форму
-                this.Close();
+                //this.Close(); //Закрываем форму
             }
             else
             {

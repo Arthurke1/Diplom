@@ -118,59 +118,83 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form10.cs">
+    <Compile Include="AddRole.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form10.Designer.cs">
-      <DependentUpon>Form10.cs</DependentUpon>
+    <Compile Include="AddRole.Designer.cs">
+      <DependentUpon>AddRole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="EditPrice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="EditPrice.Designer.cs">
+      <DependentUpon>EditPrice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="TableClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="TableClient.Designer.cs">
+      <DependentUpon>TableClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form4.cs">
+    <Compile Include="EditClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form4.Designer.cs">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <Compile Include="EditClient.Designer.cs">
+      <DependentUpon>EditClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form5.cs">
+    <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form5.Designer.cs">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form6.cs">
+    <Compile Include="EditOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form6.Designer.cs">
-      <DependentUpon>Form6.cs</DependentUpon>
+    <Compile Include="EditOrder.Designer.cs">
+      <DependentUpon>EditOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form7.cs">
+    <Compile Include="AddOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form7.Designer.cs">
-      <DependentUpon>Form7.cs</DependentUpon>
+    <Compile Include="AddOrder.Designer.cs">
+      <DependentUpon>AddOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form8.cs">
+    <Compile Include="TableOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form8.Designer.cs">
-      <DependentUpon>Form8.cs</DependentUpon>
+    <Compile Include="TableOrder.Designer.cs">
+      <DependentUpon>TableOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form9.cs">
+    <Compile Include="TablePrice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form9.Designer.cs">
-      <DependentUpon>Form9.cs</DependentUpon>
+    <Compile Include="TablePrice.Designer.cs">
+      <DependentUpon>TablePrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAkt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateAkt.Designer.cs">
+      <DependentUpon>CreateAkt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPrice.Designer.cs">
+      <DependentUpon>AddPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditRole.Designer.cs">
+      <DependentUpon>EditRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableRole.Designer.cs">
+      <DependentUpon>TableRole.cs</DependentUpon>
     </Compile>
     <Compile Include="konfFormStyle.cs">
       <SubType>Component</SubType>
@@ -187,32 +211,44 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form10.resx">
-      <DependentUpon>Form10.cs</DependentUpon>
+    <EmbeddedResource Include="AddRole.resx">
+      <DependentUpon>AddRole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="EditPrice.resx">
+      <DependentUpon>EditPrice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="TableClient.resx">
+      <DependentUpon>TableClient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form4.resx">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <EmbeddedResource Include="EditClient.resx">
+      <DependentUpon>EditClient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form5.resx">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form6.resx">
-      <DependentUpon>Form6.cs</DependentUpon>
+    <EmbeddedResource Include="EditOrder.resx">
+      <DependentUpon>EditOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form7.resx">
-      <DependentUpon>Form7.cs</DependentUpon>
+    <EmbeddedResource Include="AddOrder.resx">
+      <DependentUpon>AddOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form8.resx">
-      <DependentUpon>Form8.cs</DependentUpon>
+    <EmbeddedResource Include="TableOrder.resx">
+      <DependentUpon>TableOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form9.resx">
-      <DependentUpon>Form9.cs</DependentUpon>
+    <EmbeddedResource Include="TablePrice.resx">
+      <DependentUpon>TablePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateAkt.resx">
+      <DependentUpon>CreateAkt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPrice.resx">
+      <DependentUpon>AddPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditRole.resx">
+      <DependentUpon>EditRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableRole.resx">
+      <DependentUpon>TableRole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

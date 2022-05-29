@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace Diplom
 {
-    public partial class Form6 : Form
+    public partial class TablePrice : Form
     {
         //Переменная для ID записи в БД, выбранной в гриде. Пока она не содердит значения, лучше его инициализировать с 0
         //что бы в БД не отправлялся null
@@ -40,7 +40,7 @@ namespace Diplom
             id_selected_rows = dataGridView1.Rows[Convert.ToInt32(index_selected_rows)].Cells[0].Value.ToString();
             //Указываем ID выделенной строки в метке
             label2.Text = id_selected_rows;
-            ControlData.id_order = id_selected_rows;
+            ControlData.id_price = id_selected_rows;
         }
         //Выделение всей строки по ПКМ
         private void dataGridView1_CellMouseDown_1(object sender, DataGridViewCellMouseEventArgs e)
@@ -58,13 +58,13 @@ namespace Diplom
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //Магические строки
-            dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
-            dataGridView1.CurrentRow.Selected = true;
+            //dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
+            //dataGridView1.CurrentRow.Selected = true;
             //Метод получения ID выделенной строки в глобальную переменную
             GetSelectedIDString();
         }
 
-        public Form6()
+        public TablePrice()
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#EAE7DC");
@@ -137,8 +137,20 @@ namespace Diplom
         private void yt_Button1_Click(object sender, EventArgs e)
         {
             // переход на другую форму
-            Form8 frm = new Form8();
+            AddPrice frm = new AddPrice();
             frm.Show();
+        }
+
+        private void yt_Button3_Click(object sender, EventArgs e)
+        {
+            // переход на другую форму
+            EditPrice frm = new EditPrice();
+            frm.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

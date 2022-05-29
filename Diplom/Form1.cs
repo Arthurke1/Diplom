@@ -88,7 +88,7 @@ namespace Diplom
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             //В текстбокс3 формируется хэш по мере ввода текста во второй текстбокс, используется метод шифрования (хэширования)
-            textBox3.Text = sha256(textBox2.Text);
+         //   textBox3.Text = sha256(textBox2.Text);
         }
 
         private void yt_Button1_Click(object sender, EventArgs e)
@@ -131,7 +131,7 @@ namespace Diplom
                 GetUserInfo(textBox1.Text);
 
                 // переход на другую форму
-                Form2 frm = new Form2();
+                Menu frm = new Menu();
                 frm.ShowDialog();
                 //Закрываем форму
                 //this.Close(); //Закрываем форму

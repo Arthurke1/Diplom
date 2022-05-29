@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace Diplom
 {
-    public partial class Form9 : Form
+    public partial class TableClient : Form
     {
         //Переменная для ID записи в БД, выбранной в гриде. Пока она не содердит значения, лучше его инициализировать с 0
         //что бы в БД не отправлялся null
@@ -28,20 +28,19 @@ namespace Diplom
             id_selected_rows = dataGridView1.Rows[Convert.ToInt32(index_selected_rows)].Cells[0].Value.ToString();
             //Указываем ID выделенной строки в метке
             label2.Text = id_selected_rows;
-            ControlData.id_order = id_selected_rows;
+            ControlData.id_client = id_selected_rows;
         }
         //Метод обновления DataGreed
-        public void ReloadPriceList()
+        public void ReloadClientList()
         {
             //Чистим виртуальную таблицу внутри класса
-            ControlData.ReloadRoleList();
+            ControlData.ReloadClientList();
             //Вызываем метод получения записей, который вновь заполнит таблицу
-            ControlData.GetRoleList();
+            ControlData.GetClientList();
             //Отражаем количество записей в ДатаГриде
             int count_rows = dataGridView1.RowCount - 1;
             label1.Text = (count_rows).ToString();
         }
-
         //Выделение всей строки по ПКМ
         private void dataGridView1_CellMouseDown_1(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -58,24 +57,22 @@ namespace Diplom
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //Магические строки
-            dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
-            dataGridView1.CurrentRow.Selected = true;
+            //dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
+            //dataGridView1.CurrentRow.Selected = true;
             //Метод получения ID выделенной строки в глобальную переменную
             GetSelectedIDString();
         }
-
-
-        public Form9()
+        public TableClient()
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#EAE7DC");
         }
 
-        private void Form9_Load(object sender, EventArgs e)
+        private void Form11_Load(object sender, EventArgs e)
         {
             {
                 //Указываем, что источником данных ДатаГрида является bindingsource, возвращённый из метода класса 
-                dataGridView1.DataSource = ControlData.GetRoleList();
+                dataGridView1.DataSource = ControlData.GetClientList();
 
                 //Видимость полей в гриде
                 dataGridView1.Columns[0].Visible = true;
@@ -116,21 +113,21 @@ namespace Diplom
         private void yt_Button2_Click(object sender, EventArgs e)
         {
             //Метод удаления
-            ControlData.DeleteRole(id_selected_rows);
-            ReloadPriceList();
+            ControlData.DeleteClient(id_selected_rows);
+            ReloadClientList();
         }
 
         private void yt_Button1_Click(object sender, EventArgs e)
         {
             // переход на другую форму
-            Form10 frm = new Form10();
+            EditClient frm = new EditClient();
             frm.Show();
         }
 
         private void yt_Button3_Click(object sender, EventArgs e)
         {
             //Метод обновления dataGridView, так как он полностью обновляется, покраски строк не будет. 
-            ControlData.ReloadRoleList();
+            ControlData.ReloadClientList();
         }
     }
 }

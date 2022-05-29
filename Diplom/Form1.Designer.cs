@@ -34,8 +34,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.yt_Button1 = new Diplom.yt_Button();
@@ -78,23 +76,6 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Пароль";
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(26, 206);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(246, 20);
-            this.textBox3.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 185);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 18);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Хэш";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -120,7 +101,7 @@
             this.yt_Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(79)))));
             this.yt_Button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yt_Button1.ForeColor = System.Drawing.Color.White;
-            this.yt_Button1.Location = new System.Drawing.Point(26, 246);
+            this.yt_Button1.Location = new System.Drawing.Point(26, 213);
             this.yt_Button1.Name = "yt_Button1";
             this.yt_Button1.RoundingEnable = true;
             this.yt_Button1.Size = new System.Drawing.Size(246, 50);
@@ -141,12 +122,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(316, 333);
+            this.ClientSize = new System.Drawing.Size(316, 290);
             this.Controls.Add(this.yt_Button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
@@ -165,8 +144,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private konfFormStyle konfFormStyle1;

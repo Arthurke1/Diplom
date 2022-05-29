@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace Diplom
 {
-    public partial class Form5 : Form
+    public partial class TableOrder : Form
     {
         //Переменная для ID записи в БД, выбранной в гриде. Пока она не содердит значения, лучше его инициализировать с 0
         //что бы в БД не отправлялся null
@@ -47,9 +47,10 @@ namespace Diplom
         //Выделение всей строки по ЛКМ
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+         
             //Магические строки
-            dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
-            dataGridView1.CurrentRow.Selected = true;
+            //dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
+            //dataGridView1.CurrentRow.Selected = true;
             //Метод получения ID выделенной строки в глобальную переменную
             GetSelectedIDString();
         }
@@ -66,7 +67,7 @@ namespace Diplom
             toolStripLabel2.Text = (count_rows).ToString();
         }
 
-        public Form5()
+        public TableOrder()
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#EAE7DC");
@@ -206,7 +207,7 @@ namespace Diplom
         //переход на другую форму
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            Form3 frm = new Form3();
+            EditOrder frm = new EditOrder();
             frm.Show();
         }
 
@@ -247,6 +248,12 @@ namespace Diplom
             toolStripTextBox2.Text = "";
             toolStripTextBox3.Text = "";
             toolStripComboBox1.Text = "";
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            
         }
     }
 }

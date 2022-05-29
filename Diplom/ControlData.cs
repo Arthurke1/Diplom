@@ -13,8 +13,14 @@ namespace Diplom
 {
     class ControlData
     {
-        //Определяем  поле, которое харнит ID студенты из From10 и выводится в форме Menu
+        //Определяем  поле, которое харнит ID заказа из From3 и выводится в форме Menu
         public static string id_order = "0";
+        //Определяем  поле, которое харнит ID клиента из EditClient и выводится в форме Menu
+        public static string id_client = "0";
+        //Определяем  поле, которое харнит ID сотрудника из EditRole и выводится в форме Menu
+        public static string id_role = "0";
+        //Определяем  поле, которое харнит ID услуги из EditPrice и выводится в форме Menu
+        public static string id_price = "0";
         //Определяем параметры подключения
         private const string host = "chuc.caseum.ru";
         private const string port = "33333";
@@ -27,6 +33,9 @@ namespace Diplom
         private static readonly MySqlDataAdapter MyDA = new MySqlDataAdapter();
         //Объявление BindingSource, основная его задача, это обеспечить унифицированный доступ к источнику данных.
         private static readonly BindingSource bSource = new BindingSource();
+        private static readonly BindingSource bSource2 = new BindingSource();
+        private static readonly BindingSource bSource3 = new BindingSource();
+        private static readonly BindingSource bSource4 = new BindingSource();
         //DataSet - расположенное в оперативной памяти представление данных, обеспечивающее согласованную реляционную программную 
         //модель независимо от источника данных.DataSet представляет полный набор данных, включая таблицы, содержащие, упорядочивающие 
         //и ограничивающие данные, а также связи между таблицами.
@@ -37,6 +46,8 @@ namespace Diplom
         private static DataTable table2 = new DataTable();
         //Представляет 3 таблицу данных в памяти.
         private static DataTable table3 = new DataTable();
+        //Представляет 4 таблицу данных в памяти.
+        private static DataTable table4 = new DataTable();
 
         //Статичный метод, формирующий строку для подключения и возвращающий MySqlConnection
         public static MySqlConnection GetDBConnection()
@@ -127,9 +138,31 @@ namespace Diplom
                 //Вызов метода обновления ДатаГрида
                 ReloadRoleList();
             }
-            //conn.Open();
-            //delete_user.ExecuteNonQuery();
-            //conn.Close();
+        }
+        public static void DeleteClient(string id_stud)
+        {
+            //Формируем строку запроса на добавление строк
+            string sql_delete_user = "DELETE FROM client WHERE id_client='" + id_stud + "'";
+            //Посылаем запрос на обновление данных
+            MySqlCommand delete_user = new MySqlCommand(sql_delete_user, conn);
+            try
+            {
+                conn.Open();
+                delete_user.ExecuteNonQuery();
+                MessageBox.Show("Удаление прошло успешно", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка удаления строки \n" + ex, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            finally
+            {
+                conn.Close();
+                //Вызов метода обновления ДатаГрида
+                ReloadClientList();
+            }
+  
         }
 
         //Метод изменения статуса
@@ -160,8 +193,7 @@ namespace Diplom
             //Объявляем команду, которая выполнить запрос в соединении conn
             MyDA.SelectCommand = new MySqlCommand(commandStr, conn);
             //Заполняем таблицу записями из БД
-            MyDA.Fill(table);
-         
+            MyDA.Fill(table);         
             //Указываем, что источником данных в bindingsource является заполненная выше таблица
             bSource.DataSource = table;
             //Закрываем соединение
@@ -169,6 +201,26 @@ namespace Diplom
             //Возвращаем bindingSource
             return bSource;
         }
+        public static BindingSource GetClientList()
+        {
+            //Чистим виртуальную таблицу
+            table4.Clear();
+            // устанавливаем соединение с БД
+            conn.Open();
+            //Запрос для вывода строк в БД
+            string commandStr = "SELECT id_client AS 'Код', FIO AS 'ФИО', numberphone AS 'Номер телефона', password AS 'Паспорт' FROM client";
+            //Объявляем команду, которая выполнить запрос в соединении conn
+            MyDA.SelectCommand = new MySqlCommand(commandStr, conn);
+            //Заполняем таблицу записями из БД
+            MyDA.Fill(table4);
+            //Указываем, что источником данных в bindingsource является заполненная выше таблица
+            bSource4.DataSource = table4;
+            //Закрываем соединение
+            conn.Close();
+            //Возвращаем bindingSource
+            return bSource4;
+        }
+
         public static BindingSource GetPriceList()
         {
             //Чистим виртуальную таблицу
@@ -182,11 +234,11 @@ namespace Diplom
             //Заполняем таблицу записями из БД
             MyDA.Fill(table2);
             //Указываем, что источником данных в bindingsource является заполненная выше таблица
-            bSource.DataSource = table2;
+            bSource2.DataSource = table2;
             //Закрываем соединение
             conn.Close();
             //Возвращаем bindingSource
-            return bSource;
+            return bSource2;
         }
 
         public static BindingSource GetRoleList()
@@ -202,11 +254,11 @@ namespace Diplom
             //Заполняем таблицу записями из БД
             MyDA.Fill(table3);
             //Указываем, что источником данных в bindingsource является заполненная выше таблица
-            bSource.DataSource = table3;
+            bSource3.DataSource = table3;
             //Закрываем соединение
             conn.Close();
             //Возвращаем bindingSource
-            return bSource;
+            return bSource3;
         }
         public static void ReloadList()
         {
@@ -228,6 +280,13 @@ namespace Diplom
             table3.Clear();
             //Вызываем метод получения записей, который вновь заполнит таблицу
             GetRoleList();
+        }
+        public static void ReloadClientList()
+        {
+            //Чистим виртуальную таблицу
+            table4.Clear();
+            //Вызываем метод получения записей, который вновь заполнит таблицу
+            GetClientList();
         }
 
     }

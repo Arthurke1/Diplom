@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Diplom
 {
-    public partial class Form7 : Form
+    public partial class CreateAkt : Form
     {
-        public Form7()
+        public CreateAkt()
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#EAE7DC");
@@ -30,7 +30,7 @@ namespace Diplom
 
         private void Form7_Load(object sender, EventArgs e)
         {
-            textBox1.Text  = SomeClass.new_inserted_mainOrder_id;
+            textBox1.Text  = SomeClass.new_inserted_id;
             textBox2.Text = SomeClass.variable_class1;
             textBox3.Text = SomeClass.variable_class2;
             textBox4.Text = SomeClass.variable_class3;
@@ -62,6 +62,9 @@ namespace Diplom
                 {"<COMM>", textBox11.Text },
             };
             helper.Process(items);
+            MessageBox.Show("Акт приема на ремонт успешно создан!");
+            //Закрываем форму
+            this.Close();
         }
     }
 }

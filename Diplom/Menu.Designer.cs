@@ -1,6 +1,6 @@
 ﻿namespace Diplom
 {
-    partial class Form2
+    partial class Menu
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,6 +42,7 @@
             this.konfFormStyle1 = new Diplom.konfFormStyle(this.components);
             this.yt_Button4 = new Diplom.yt_Button();
             this.yt_Button5 = new Diplom.yt_Button();
+            this.yt_Button6 = new Diplom.yt_Button();
             this.SuspendLayout();
             // 
             // label1
@@ -50,7 +51,7 @@
             this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(195, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 16);
+            this.label1.Size = new System.Drawing.Size(45, 16);
             this.label1.TabIndex = 5;
             this.label1.Text = "label1";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -71,7 +72,7 @@
             this.label3.Font = new System.Drawing.Font("Arial Unicode MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 16);
+            this.label3.Size = new System.Drawing.Size(104, 16);
             this.label3.TabIndex = 7;
             this.label3.Text = "Пользователь:";
             // 
@@ -101,7 +102,7 @@
             this.label6.Font = new System.Drawing.Font("Arial Unicode MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(12, 33);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 16);
+            this.label6.Size = new System.Drawing.Size(57, 16);
             this.label6.TabIndex = 10;
             this.label6.Text = "Доступ:";
             // 
@@ -157,7 +158,7 @@
             this.yt_Button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(79)))));
             this.yt_Button4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yt_Button4.ForeColor = System.Drawing.Color.White;
-            this.yt_Button4.Location = new System.Drawing.Point(107, 438);
+            this.yt_Button4.Location = new System.Drawing.Point(114, 477);
             this.yt_Button4.Name = "yt_Button4";
             this.yt_Button4.RoundingEnable = true;
             this.yt_Button4.Size = new System.Drawing.Size(100, 40);
@@ -178,12 +179,26 @@
             this.yt_Button5.Text = "Пользователи";
             this.yt_Button5.Click += new System.EventHandler(this.yt_Button5_Click);
             // 
+            // yt_Button6
+            // 
+            this.yt_Button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(79)))));
+            this.yt_Button6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.yt_Button6.ForeColor = System.Drawing.Color.White;
+            this.yt_Button6.Location = new System.Drawing.Point(64, 388);
+            this.yt_Button6.Name = "yt_Button6";
+            this.yt_Button6.RoundingEnable = true;
+            this.yt_Button6.Size = new System.Drawing.Size(202, 54);
+            this.yt_Button6.TabIndex = 16;
+            this.yt_Button6.Text = "Клиенты";
+            this.yt_Button6.Click += new System.EventHandler(this.yt_Button6_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(332, 508);
+            this.ClientSize = new System.Drawing.Size(332, 549);
+            this.Controls.Add(this.yt_Button6);
             this.Controls.Add(this.yt_Button5);
             this.Controls.Add(this.yt_Button4);
             this.Controls.Add(this.yt_Button3);
@@ -217,5 +232,6 @@
         private yt_Button yt_Button1;
         private yt_Button yt_Button4;
         private yt_Button yt_Button5;
+        private yt_Button yt_Button6;
     }
 }

@@ -5,15 +5,16 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace Diplom
 {
-    public partial class Form8 : Form
+    public partial class AddPrice : Form
     {
-        public Form8()
+        public AddPrice()
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#EAE7DC");
@@ -67,7 +68,14 @@ namespace Diplom
             // создаём объект для подключения к БД
             conn = new MySqlConnection(connStr);
         }
-
+        public void ReloadPriceList()
+        {
+            //Чистим виртуальную таблицу внутри класса
+            ControlData.ReloadPriceList();
+            //Вызываем метод получения записей, который вновь заполнит таблицу
+            ControlData.GetPriceList();
+            
+        }
         private void yt_Button1_Click(object sender, EventArgs e)
         {
             //Объявляем переменные для вставки в БД
@@ -89,6 +97,42 @@ namespace Diplom
             else
             {
                 MessageBox.Show("Произошла ошибка.", "Ошибка");
+            }
+            ReloadPriceList();
+            //Закрываем форму
+            this.Close();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+        //ВВод только букв
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char l = e.KeyChar;
+            if ((l < 'А' || l > 'я') && l != '\b' && l != '.' && l != ' ')
+            {
+                e.Handled = true;
+            }
+
+        }
+        //Ввод только цифр
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44) //цифры, клавиша BackSpace и запятая а ASCII
+            {
+                e.Handled = true;
+            }
+        }
+        //Ввод только цифр
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44) //цифры, клавиша BackSpace и запятая а ASCII
+            {
+                e.Handled = true;
             }
         }
     }

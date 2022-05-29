@@ -11,11 +11,11 @@ using MySql.Data.MySqlClient;
 
 namespace Diplom
 {
-    public partial class Form3 : Form
+    public partial class EditOrder : Form
     {
         //Объявляем объект соединения глобально
         MySqlConnection conn;
-        public Form3()
+        public EditOrder()
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#EAE7DC");
@@ -26,7 +26,7 @@ namespace Diplom
             //Открываем соединение
             conn.Open();
             //Меняем на форме название, с указанием того студента, которого хотим изменить
-            this.Text = $"Меняем пользователя ID: {ControlData.id_order}";
+            this.Text = $"Меняем заказ ID: {ControlData.id_order}";
             //Объявляем запрос на вывод данных из таблицы в поля
             string sql_select_current_stud = $"SELECT zakaz.id_order, status.id_status, zakaz.FIO, zakaz.numberphone, auth.id, zakaz.price, zakaz.cause, zakaz.IMEI, zakaz.conditione, zakaz.device, zakaz.type_device, zakaz.comm, zakaz.model FROM zakaz, auth, status WHERE id_order = {ControlData.id_order}";
             // объект для выполнения SQL-запроса
@@ -143,6 +143,15 @@ namespace Diplom
                 conn.Close();
             }
         }
+        //Метод обновления DataGreed
+        public void reload_list()
+        {
+            //Чистим виртуальную таблицу внутри класса
+            ControlData.ReloadList();
+            //Вызываем метод получения записей, который вновь заполнит таблицу
+            ControlData.GetListUsers();
+
+        }
 
         private void Form3_Load(object sender, EventArgs e)
         {
@@ -187,11 +196,39 @@ namespace Diplom
             conn.Close();
             //Закрываем форму
             this.Close();
+            reload_list();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close(); //Закрываем форму
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44) //цифры, клавиша BackSpace и запятая а ASCII
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44) //цифры, клавиша BackSpace и запятая а ASCII
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char l = e.KeyChar;
+            if ((l < 'А' || l > 'я') && l != '\b' && l != '.' && l != ' ')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

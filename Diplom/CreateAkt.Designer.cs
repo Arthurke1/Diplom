@@ -1,6 +1,6 @@
 ﻿namespace Diplom
 {
-    partial class Form7
+    partial class CreateAkt
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form7));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateAkt));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -333,7 +333,7 @@
             this.konfFormStyle1.Form = this;
             this.konfFormStyle1.FormStyle = Diplom.konfFormStyle.fStyle.none;
             // 
-            // Form7
+            // CreateAkt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -341,8 +341,8 @@
             this.Controls.Add(this.yt_Button1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form7";
-            this.Text = "Создание акта";
+            this.Name = "CreateAkt";
+            this.Text = "Создание акта приема на ремонт ";
             this.Load += new System.EventHandler(this.Form7_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

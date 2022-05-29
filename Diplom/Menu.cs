@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Diplom
 {
-    public partial class Form2 : Form
+    public partial class Menu : Form
     {
-        public Form2()
+        public Menu()
         {
            
             InitializeComponent();
@@ -82,21 +82,21 @@ namespace Diplom
         private void yt_Button1_Click(object sender, EventArgs e)
         {
             // переход на другую форму
-            Form5 frm = new Form5();
+            TableOrder frm = new TableOrder();
             frm.Show();
         }
 
         private void yt_Button2_Click(object sender, EventArgs e)
         {
             // переход на другую форму
-            Form4 frm = new Form4();
+            AddOrder frm = new AddOrder();
             frm.Show();
         }
 
         private void yt_Button3_Click(object sender, EventArgs e)
         {
             // переход на другую форму
-            Form6 frm = new Form6();
+            TablePrice frm = new TablePrice();
             frm.Show();
         }
 
@@ -108,7 +108,14 @@ namespace Diplom
         private void yt_Button5_Click(object sender, EventArgs e)
         {
             // переход на другую форму
-            Form9 frm = new Form9();
+            TableRole frm = new TableRole();
+            frm.Show();
+        }
+
+        private void yt_Button6_Click(object sender, EventArgs e)
+        {
+            // переход на другую форму
+            TableClient frm = new TableClient();
             frm.Show();
         }
     }

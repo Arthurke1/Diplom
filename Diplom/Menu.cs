@@ -118,5 +118,12 @@ namespace Diplom
             TableClient frm = new TableClient();
             frm.Show();
         }
+
+        private void yt_Button7_Click(object sender, EventArgs e)
+        {
+            // переход на другую форму
+            Form2 frm = new Form2();
+            frm.Show();
+        }
     }
 }

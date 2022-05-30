@@ -96,10 +96,10 @@ namespace Diplom
             //Ширина полей
             dataGridView1.Columns[0].FillWeight = 10;
             dataGridView1.Columns[1].FillWeight = 20;
-            dataGridView1.Columns[2].FillWeight = 40;
+            dataGridView1.Columns[2].FillWeight = 50;
             dataGridView1.Columns[3].FillWeight = 24;
-            dataGridView1.Columns[4].FillWeight = 40;
-            dataGridView1.Columns[5].FillWeight = 15;
+            dataGridView1.Columns[4].FillWeight = 45;
+            dataGridView1.Columns[5].FillWeight = 17;
             dataGridView1.Columns[6].FillWeight = 20;
             dataGridView1.Columns[7].FillWeight = 30;
             dataGridView1.Columns[8].FillWeight = 30;

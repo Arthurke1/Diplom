@@ -174,7 +174,7 @@ namespace Diplom
             comboBox2.DisplayMember = "name_device";
             comboBox2.ValueMember = "id_device";
             //Формируем строку запроса на отображение списка статусов прав пользователя
-            string sql_list_users = "SELECT id_device, name_device FROM type_device";
+            string sql_list_users = "SELECT id_device, name_device, brand FROM type_device";
             list_stud_command.CommandText = sql_list_users;
             list_stud_command.Connection = conn;
             //Формирование списка ЦП для combobox'a
@@ -202,7 +202,52 @@ namespace Diplom
                 conn.Close();
             }
         }
-        public void GetComboBox3()
+        //public void GetComboBox3()
+        //{
+        //    int id_device = Convert.ToInt32(comboBox2.SelectedValue);
+        //    //Формирование списка статусов
+        //    DataTable list_stud_table = new DataTable();
+        //    MySqlCommand list_stud_command = new MySqlCommand();
+        //    //Открываем соединение
+        //    conn.Open();
+        //    //Формируем столбцы для комбобокса списка ЦП
+        //    list_stud_table.Columns.Add(new DataColumn("id_brand", System.Type.GetType("System.Int32")));
+        //    list_stud_table.Columns.Add(new DataColumn("name_brand", System.Type.GetType("System.String")));
+        //    //Настройка видимости полей комбобокса
+        //    comboBox3.DataSource = list_stud_table;
+        //    comboBox3.DisplayMember = "name_brand";
+        //    comboBox3.ValueMember = "id_brand";
+        //    //Формируем строку запроса на отображение списка статусов прав пользователя
+        //    string sql_list_users = "SELECT id_brand, name_brand FROM brand WHERE name_brand = (SELECT brand FROM type_device WHERE id_device = ('" + id_device + "'))";
+        //   // string sql_list_users = "SELECT id_telefon, name FROM telefon";
+        //    list_stud_command.CommandText = sql_list_users;
+        //    list_stud_command.Connection = conn;
+        //    //Формирование списка ЦП для combobox'a
+        //    MySqlDataReader list_stud_reader;
+        //    try
+        //    {
+        //        //Инициализируем ридер
+        //        list_stud_reader = list_stud_command.ExecuteReader();
+        //        while (list_stud_reader.Read())
+        //        {
+        //            DataRow rowToAdd = list_stud_table.NewRow();
+        //            rowToAdd["id_brand"] = Convert.ToInt32(list_stud_reader[0]);
+        //            rowToAdd["name_brand"] = list_stud_reader[1].ToString();
+        //            list_stud_table.Rows.Add(rowToAdd);
+        //        }
+        //        list_stud_reader.Close();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Ошибка чтения списка ЦП \n\n" + ex, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        Application.Exit();
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //}
+        public void GetComboBoxPhone()
         {
             int id_device = Convert.ToInt32(comboBox2.SelectedValue);
             //Формирование списка статусов
@@ -211,14 +256,15 @@ namespace Diplom
             //Открываем соединение
             conn.Open();
             //Формируем столбцы для комбобокса списка ЦП
-            list_stud_table.Columns.Add(new DataColumn("id_brand", System.Type.GetType("System.Int32")));
-            list_stud_table.Columns.Add(new DataColumn("name_brand", System.Type.GetType("System.String")));
+            list_stud_table.Columns.Add(new DataColumn("id_telefone", System.Type.GetType("System.Int32")));
+            list_stud_table.Columns.Add(new DataColumn("name", System.Type.GetType("System.String")));
             //Настройка видимости полей комбобокса
             comboBox3.DataSource = list_stud_table;
-            comboBox3.DisplayMember = "name_brand";
-            comboBox3.ValueMember = "id_brand";
+            comboBox3.DisplayMember = "name";
+            comboBox3.ValueMember = "id_telefone";
             //Формируем строку запроса на отображение списка статусов прав пользователя
-            string sql_list_users = "SELECT id_brand, name_brand FROM brand";
+            //string sql_list_users = "SELECT id_brand, name_brand FROM brand WHERE name_brand = (SELECT brand FROM type_device WHERE id_device = ('" + id_device + "'))";
+            string sql_list_users = "SELECT id_telefone, name FROM telefon";
             list_stud_command.CommandText = sql_list_users;
             list_stud_command.Connection = conn;
             //Формирование списка ЦП для combobox'a
@@ -230,8 +276,361 @@ namespace Diplom
                 while (list_stud_reader.Read())
                 {
                     DataRow rowToAdd = list_stud_table.NewRow();
-                    rowToAdd["id_brand"] = Convert.ToInt32(list_stud_reader[0]);
-                    rowToAdd["name_brand"] = list_stud_reader[1].ToString();
+                    rowToAdd["id_telefone"] = Convert.ToInt32(list_stud_reader[0]);
+                    rowToAdd["name"] = list_stud_reader[1].ToString();
+                    list_stud_table.Rows.Add(rowToAdd);
+                }
+                list_stud_reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка чтения списка ЦП \n\n" + ex, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void GetComboBoxNout()
+        {
+            int id_device = Convert.ToInt32(comboBox2.SelectedValue);
+            //Формирование списка статусов
+            DataTable list_stud_table = new DataTable();
+            MySqlCommand list_stud_command = new MySqlCommand();
+            //Открываем соединение
+            conn.Open();
+            //Формируем столбцы для комбобокса списка ЦП
+            list_stud_table.Columns.Add(new DataColumn("id_nout", System.Type.GetType("System.Int32")));
+            list_stud_table.Columns.Add(new DataColumn("name", System.Type.GetType("System.String")));
+            //Настройка видимости полей комбобокса
+            comboBox3.DataSource = list_stud_table;
+            comboBox3.DisplayMember = "name";
+            comboBox3.ValueMember = "id_nout";
+            //Формируем строку запроса на отображение списка статусов прав пользователя
+            string sql_list_users = "SELECT id_nout, name FROM nout";
+            list_stud_command.CommandText = sql_list_users;
+            list_stud_command.Connection = conn;
+            //Формирование списка ЦП для combobox'a
+            MySqlDataReader list_stud_reader;
+            try
+            {
+                //Инициализируем ридер
+                list_stud_reader = list_stud_command.ExecuteReader();
+                while (list_stud_reader.Read())
+                {
+                    DataRow rowToAdd = list_stud_table.NewRow();
+                    rowToAdd["id_nout"] = Convert.ToInt32(list_stud_reader[0]);
+                    rowToAdd["name"] = list_stud_reader[1].ToString();
+                    list_stud_table.Rows.Add(rowToAdd);
+                }
+                list_stud_reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка чтения списка ЦП \n\n" + ex, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            finally
+            {
+                conn.Close();
+            }    
+        }
+        public void GetComboBoxHDD()
+        {
+            int id_device = Convert.ToInt32(comboBox2.SelectedValue);
+            //Формирование списка статусов
+            DataTable list_stud_table = new DataTable();
+            MySqlCommand list_stud_command = new MySqlCommand();
+            //Открываем соединение
+            conn.Open();
+            //Формируем столбцы для комбобокса списка ЦП
+            list_stud_table.Columns.Add(new DataColumn("id_hhd", System.Type.GetType("System.Int32")));
+            list_stud_table.Columns.Add(new DataColumn("name", System.Type.GetType("System.String")));
+            //Настройка видимости полей комбобокса
+            comboBox3.DataSource = list_stud_table;
+            comboBox3.DisplayMember = "name";
+            comboBox3.ValueMember = "id_hhd";
+            //Формируем строку запроса на отображение списка статусов прав пользователя
+            string sql_list_users = "SELECT id_hhd, name FROM HDD";
+            list_stud_command.CommandText = sql_list_users;
+            list_stud_command.Connection = conn;
+            //Формирование списка ЦП для combobox'a
+            MySqlDataReader list_stud_reader;
+            try
+            {
+                //Инициализируем ридер
+                list_stud_reader = list_stud_command.ExecuteReader();
+                while (list_stud_reader.Read())
+                {
+                    DataRow rowToAdd = list_stud_table.NewRow();
+                    rowToAdd["id_hhd"] = Convert.ToInt32(list_stud_reader[0]);
+                    rowToAdd["name"] = list_stud_reader[1].ToString();
+                    list_stud_table.Rows.Add(rowToAdd);
+                }
+                list_stud_reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка чтения списка ЦП \n\n" + ex, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+        public void GetComboBoxMFU()
+        {
+            int id_device = Convert.ToInt32(comboBox2.SelectedValue);
+            //Формирование списка статусов
+            DataTable list_stud_table = new DataTable();
+            MySqlCommand list_stud_command = new MySqlCommand();
+            //Открываем соединение
+            conn.Open();
+            //Формируем столбцы для комбобокса списка ЦП
+            list_stud_table.Columns.Add(new DataColumn("id_mfu", System.Type.GetType("System.Int32")));
+            list_stud_table.Columns.Add(new DataColumn("name", System.Type.GetType("System.String")));
+            //Настройка видимости полей комбобокса
+            comboBox3.DataSource = list_stud_table;
+            comboBox3.DisplayMember = "name";
+            comboBox3.ValueMember = "id_mfu";
+            //Формируем строку запроса на отображение списка статусов прав пользователя
+            string sql_list_users = "SELECT id_mfu, name FROM MFU";
+            list_stud_command.CommandText = sql_list_users;
+            list_stud_command.Connection = conn;
+            //Формирование списка ЦП для combobox'a
+            MySqlDataReader list_stud_reader;
+            try
+            {
+                //Инициализируем ридер
+                list_stud_reader = list_stud_command.ExecuteReader();
+                while (list_stud_reader.Read())
+                {
+                    DataRow rowToAdd = list_stud_table.NewRow();
+                    rowToAdd["id_mfu"] = Convert.ToInt32(list_stud_reader[0]);
+                    rowToAdd["name"] = list_stud_reader[1].ToString();
+                    list_stud_table.Rows.Add(rowToAdd);
+                }
+                list_stud_reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка чтения списка ЦП \n\n" + ex, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void GetComboBoxMonitor()
+        {
+            int id_device = Convert.ToInt32(comboBox2.SelectedValue);
+            //Формирование списка статусов
+            DataTable list_stud_table = new DataTable();
+            MySqlCommand list_stud_command = new MySqlCommand();
+            //Открываем соединение
+            conn.Open();
+            //Формируем столбцы для комбобокса списка ЦП
+            list_stud_table.Columns.Add(new DataColumn("id_monitor", System.Type.GetType("System.Int32")));
+            list_stud_table.Columns.Add(new DataColumn("name", System.Type.GetType("System.String")));
+            //Настройка видимости полей комбобокса
+            comboBox3.DataSource = list_stud_table;
+            comboBox3.DisplayMember = "name";
+            comboBox3.ValueMember = "id_monitor";
+            //Формируем строку запроса на отображение списка статусов прав пользователя
+            string sql_list_users = "SELECT id_monitor, name FROM monitor";
+            list_stud_command.CommandText = sql_list_users;
+            list_stud_command.Connection = conn;
+            //Формирование списка ЦП для combobox'a
+            MySqlDataReader list_stud_reader;
+            try
+            {
+                //Инициализируем ридер
+                list_stud_reader = list_stud_command.ExecuteReader();
+                while (list_stud_reader.Read())
+                {
+                    DataRow rowToAdd = list_stud_table.NewRow();
+                    rowToAdd["id_monitor"] = Convert.ToInt32(list_stud_reader[0]);
+                    rowToAdd["name"] = list_stud_reader[1].ToString();
+                    list_stud_table.Rows.Add(rowToAdd);
+                }
+                list_stud_reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка чтения списка ЦП \n\n" + ex, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void GetComboBoxPowersupply()
+        {
+            int id_device = Convert.ToInt32(comboBox2.SelectedValue);
+            //Формирование списка статусов
+            DataTable list_stud_table = new DataTable();
+            MySqlCommand list_stud_command = new MySqlCommand();
+            //Открываем соединение
+            conn.Open();
+            //Формируем столбцы для комбобокса списка ЦП
+            list_stud_table.Columns.Add(new DataColumn("id_ps", System.Type.GetType("System.Int32")));
+            list_stud_table.Columns.Add(new DataColumn("name", System.Type.GetType("System.String")));
+            //Настройка видимости полей комбобокса
+            comboBox3.DataSource = list_stud_table;
+            comboBox3.DisplayMember = "name";
+            comboBox3.ValueMember = "id_ps";
+            //Формируем строку запроса на отображение списка статусов прав пользователя
+            string sql_list_users = "SELECT id_ps, name FROM powersupply";
+            list_stud_command.CommandText = sql_list_users;
+            list_stud_command.Connection = conn;
+            //Формирование списка ЦП для combobox'a
+            MySqlDataReader list_stud_reader;
+            try
+            {
+                //Инициализируем ридер
+                list_stud_reader = list_stud_command.ExecuteReader();
+                while (list_stud_reader.Read())
+                {
+                    DataRow rowToAdd = list_stud_table.NewRow();
+                    rowToAdd["id_ps"] = Convert.ToInt32(list_stud_reader[0]);
+                    rowToAdd["name"] = list_stud_reader[1].ToString();
+                    list_stud_table.Rows.Add(rowToAdd);
+                }
+                list_stud_reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка чтения списка ЦП \n\n" + ex, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void GetComboBoxTablet()
+        {
+            int id_device = Convert.ToInt32(comboBox2.SelectedValue);
+            //Формирование списка статусов
+            DataTable list_stud_table = new DataTable();
+            MySqlCommand list_stud_command = new MySqlCommand();
+            //Открываем соединение
+            conn.Open();
+            //Формируем столбцы для комбобокса списка ЦП
+            list_stud_table.Columns.Add(new DataColumn("id_tablet", System.Type.GetType("System.Int32")));
+            list_stud_table.Columns.Add(new DataColumn("name", System.Type.GetType("System.String")));
+            //Настройка видимости полей комбобокса
+            comboBox3.DataSource = list_stud_table;
+            comboBox3.DisplayMember = "name";
+            comboBox3.ValueMember = "id_tablet";
+            //Формируем строку запроса на отображение списка статусов прав пользователя
+            string sql_list_users = "SELECT id_tablet, name FROM tablet";
+            list_stud_command.CommandText = sql_list_users;
+            list_stud_command.Connection = conn;
+            //Формирование списка ЦП для combobox'a
+            MySqlDataReader list_stud_reader;
+            try
+            {
+                //Инициализируем ридер
+                list_stud_reader = list_stud_command.ExecuteReader();
+                while (list_stud_reader.Read())
+                {
+                    DataRow rowToAdd = list_stud_table.NewRow();
+                    rowToAdd["id_tablet"] = Convert.ToInt32(list_stud_reader[0]);
+                    rowToAdd["name"] = list_stud_reader[1].ToString();
+                    list_stud_table.Rows.Add(rowToAdd);
+                }
+                list_stud_reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка чтения списка ЦП \n\n" + ex, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void GetComboBoxTV()
+        {
+            int id_device = Convert.ToInt32(comboBox2.SelectedValue);
+            //Формирование списка статусов
+            DataTable list_stud_table = new DataTable();
+            MySqlCommand list_stud_command = new MySqlCommand();
+            //Открываем соединение
+            conn.Open();
+            //Формируем столбцы для комбобокса списка ЦП
+            list_stud_table.Columns.Add(new DataColumn("id_tv", System.Type.GetType("System.Int32")));
+            list_stud_table.Columns.Add(new DataColumn("name", System.Type.GetType("System.String")));
+            //Настройка видимости полей комбобокса
+            comboBox3.DataSource = list_stud_table;
+            comboBox3.DisplayMember = "name";
+            comboBox3.ValueMember = "id_tv";
+            //Формируем строку запроса на отображение списка статусов прав пользователя
+            string sql_list_users = "SELECT id_tv, name FROM TV";
+            list_stud_command.CommandText = sql_list_users;
+            list_stud_command.Connection = conn;
+            //Формирование списка ЦП для combobox'a
+            MySqlDataReader list_stud_reader;
+            try
+            {
+                //Инициализируем ридер
+                list_stud_reader = list_stud_command.ExecuteReader();
+                while (list_stud_reader.Read())
+                {
+                    DataRow rowToAdd = list_stud_table.NewRow();
+                    rowToAdd["id_tv"] = Convert.ToInt32(list_stud_reader[0]);
+                    rowToAdd["name"] = list_stud_reader[1].ToString();
+                    list_stud_table.Rows.Add(rowToAdd);
+                }
+                list_stud_reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка чтения списка ЦП \n\n" + ex, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void GetComboBoxVideocard()
+        {
+            int id_device = Convert.ToInt32(comboBox2.SelectedValue);
+            //Формирование списка статусов
+            DataTable list_stud_table = new DataTable();
+            MySqlCommand list_stud_command = new MySqlCommand();
+            //Открываем соединение
+            conn.Open();
+            //Формируем столбцы для комбобокса списка ЦП
+            list_stud_table.Columns.Add(new DataColumn("id_videocard", System.Type.GetType("System.Int32")));
+            list_stud_table.Columns.Add(new DataColumn("name", System.Type.GetType("System.String")));
+            //Настройка видимости полей комбобокса
+            comboBox3.DataSource = list_stud_table;
+            comboBox3.DisplayMember = "name";
+            comboBox3.ValueMember = "id_videocard";
+            //Формируем строку запроса на отображение списка статусов прав пользователя       
+            string sql_list_users = "SELECT id_videocard, name FROM videocard";
+            list_stud_command.CommandText = sql_list_users;
+            list_stud_command.Connection = conn;
+            //Формирование списка ЦП для combobox'a
+            MySqlDataReader list_stud_reader;
+            try
+            {
+                //Инициализируем ридер
+                list_stud_reader = list_stud_command.ExecuteReader();
+                while (list_stud_reader.Read())
+                {
+                    DataRow rowToAdd = list_stud_table.NewRow();
+                    rowToAdd["id_videocard"] = Convert.ToInt32(list_stud_reader[0]);
+                    rowToAdd["name"] = list_stud_reader[1].ToString();
                     list_stud_table.Rows.Add(rowToAdd);
                 }
                 list_stud_reader.Close();
@@ -258,7 +657,7 @@ namespace Diplom
             //Вызываем метод наполнения ComboBox
             GetComboBox4();
             GetComboBox2();
-            GetComboBox3();
+            //GetComboBox3();
         }
         //Метод обновления DataGreed
         public void reload_list()
@@ -266,55 +665,9 @@ namespace Diplom
             //Чистим виртуальную таблицу внутри класса
             ControlData.ReloadList();
             //Вызываем метод получения записей, который вновь заполнит таблицу
-            ControlData.GetListUsers();
-      
-
-
+            ControlData.GetListUsers();      
         }
-        //????????????
-        //public void GetComboBox1()
-        //{
-        //    //Формирование списка статусов
-        //    DataTable list_stud_table = new DataTable();
-        //    MySqlCommand list_stud_command = new MySqlCommand();
-        //    //Открываем соединение
-        //    conn.Open();
-        //    //Формируем столбцы для комбобокса списка ЦП
-        //    list_stud_table.Columns.Add(new DataColumn("id_client", System.Type.GetType("System.Int32")));
-        //    list_stud_table.Columns.Add(new DataColumn("FIO", System.Type.GetType("System.String")));
-        //    //Настройка видимости полей комбобокса
-        //    comboBox1.DataSource = list_stud_table;
-        //    comboBox1.DisplayMember = "name_status";
-        //    comboBox1.ValueMember = "id_status";
-        //    //Формируем строку запроса на отображение списка статусов прав пользователя
-        //    string sql_list_users = "SELECT id_status, name_status FROM status";
-        //    list_stud_command.CommandText = sql_list_users;
-        //    list_stud_command.Connection = conn;
-        //    //Формирование списка ЦП для combobox'a
-        //    MySqlDataReader list_stud_reader;
-        //    try
-        //    {
-        //        //Инициализируем ридер
-        //        list_stud_reader = list_stud_command.ExecuteReader();
-        //        while (list_stud_reader.Read())
-        //        {
-        //            DataRow rowToAdd = list_stud_table.NewRow();
-        //            rowToAdd["id_status"] = Convert.ToInt32(list_stud_reader[0]);
-        //            rowToAdd["name_status"] = list_stud_reader[1].ToString();
-        //            list_stud_table.Rows.Add(rowToAdd);
-        //        }
-        //        list_stud_reader.Close();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Ошибка чтения списка ЦП \n\n" + ex, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        Application.Exit();
-        //    }
-        //    finally
-        //    {
-        //        conn.Close();
-        //    }
-        //}
+        
         private void button1_Click(object sender, EventArgs e)
         {
             //Объявляем переменные для вставки в БД
@@ -365,17 +718,7 @@ namespace Diplom
             SomeClass.variable_class11 = i_comm;
             SomeClass.variable_class12 = i_model;
            
-            // SomeClass.variable_class13 = i_password;
-            //Если метод вставки записи в БД вернёт истину, то просто обновим список и увидим вставленное значение
-            //if (InsertPrepods(i_status, i_FIO, i_numberphone, i_executor, i_price, i_cause, i_imei, i_conditione, i_deivice, i_type_device, i_comm, i_model, i_password))
-            //{
-            //    MessageBox.Show("Успешно добавлено!");
-            //}
-            ////Иначе произошла какая то ошибка и покажем пользователю уведомление
-            //else
-            //{
-            //    MessageBox.Show("Произошла ошибка.",  "Ошибка");
-            //}
+           
             reload_list();
             CreateAkt frm = new CreateAkt();
             frm.Show();
@@ -420,6 +763,65 @@ namespace Diplom
             {
                 e.Handled = true;
             }
+        }
+
+        private void comboBox3_Click(object sender, EventArgs e)
+        {
+         //   GetComboBox3();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox2.Text == "Телефон")
+            {
+                comboBox3.Text = " ";
+                GetComboBoxPhone();
+            }
+            if (comboBox2.Text == "Ноутбук")
+            {
+                comboBox3.Text = " ";
+                GetComboBoxNout();
+            }    
+            if(comboBox2.Text == "Жесткий диск")
+            {
+                comboBox3.Text = " ";
+                GetComboBoxHDD();
+            }
+            if (comboBox2.Text == "МФУ")
+            {
+                comboBox3.Text = " ";
+                GetComboBoxMFU();
+            }
+            if (comboBox2.Text == "Монитор")
+            {
+                comboBox3.Text = " ";
+                GetComboBoxMonitor();
+            }
+            if (comboBox2.Text == "Блок питания")
+            {
+                comboBox3.Text = " ";
+                GetComboBoxPowersupply();
+            }
+            if (comboBox2.Text == "Планшет")
+            {
+                comboBox3.Text = " ";
+                GetComboBoxTablet();
+            }
+            if (comboBox2.Text == "Телевизор")
+            {
+                comboBox3.Text = " ";
+                GetComboBoxTV();
+            }
+            if (comboBox2.Text == "Видеокарта")
+            {
+                comboBox3.Text = " ";
+                GetComboBoxVideocard();
+            }
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

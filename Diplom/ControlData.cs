@@ -36,6 +36,7 @@ namespace Diplom
         private static readonly BindingSource bSource2 = new BindingSource();
         private static readonly BindingSource bSource3 = new BindingSource();
         private static readonly BindingSource bSource4 = new BindingSource();
+        private static readonly BindingSource bSource5 = new BindingSource();
         //DataSet - расположенное в оперативной памяти представление данных, обеспечивающее согласованную реляционную программную 
         //модель независимо от источника данных.DataSet представляет полный набор данных, включая таблицы, содержащие, упорядочивающие 
         //и ограничивающие данные, а также связи между таблицами.
@@ -48,6 +49,8 @@ namespace Diplom
         private static DataTable table3 = new DataTable();
         //Представляет 4 таблицу данных в памяти.
         private static DataTable table4 = new DataTable();
+        //Представляет 5 таблицу данных в памяти.
+        private static DataTable table5 = new DataTable();
 
         //Статичный метод, формирующий строку для подключения и возвращающий MySqlConnection
         public static MySqlConnection GetDBConnection()
@@ -180,7 +183,25 @@ namespace Diplom
             conn.Close();
             //Обновляем DataGrid
         }
-
+        public static BindingSource GetListUsersAnalitic()
+        {
+            //Чистим виртуальную таблицу
+            table5.Clear();
+            // устанавливаем соединение с БД
+            conn.Open();
+            //Запрос для вывода строк в БД
+            string commandStr = "SELECT id_order AS 'Код', status AS 'Статус', FIO AS 'ФИО', numberphone AS 'Номер телефона', executor AS 'Исполнитель', price AS 'Стоимость', cause AS 'Дата приема', IMEI AS 'Серийный номер', conditione AS 'Состояние', device AS 'Название бренда', model AS 'Модель' , type_device AS 'Тип устройства', comm AS 'Комментарий' FROM zakaz";
+            //Объявляем команду, которая выполнить запрос в соединении conn
+            MyDA.SelectCommand = new MySqlCommand(commandStr, conn);
+            //Заполняем таблицу записями из БД
+            MyDA.Fill(table5);
+            //Указываем, что источником данных в bindingsource является заполненная выше таблица
+            bSource5.DataSource = table5;
+            //Закрываем соединение
+            conn.Close();
+            //Возвращаем bindingSource
+            return bSource5;
+        }
         //Метод заполнения грида
         public static BindingSource GetListUsers()
         {
@@ -266,6 +287,13 @@ namespace Diplom
             table.Clear();
             //Вызываем метод получения записей, который вновь заполнит таблицу
             GetListUsers();
+        }
+        public static void ReloadAnaliticList()
+        {
+            //Чистим виртуальную таблицу
+            table5.Clear();
+            //Вызываем метод получения записей, который вновь заполнит таблицу
+            GetListUsersAnalitic();
         }
         public static void ReloadPriceList()
         {

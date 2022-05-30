@@ -43,6 +43,7 @@
             this.yt_Button4 = new Diplom.yt_Button();
             this.yt_Button5 = new Diplom.yt_Button();
             this.yt_Button6 = new Diplom.yt_Button();
+            this.yt_Button7 = new Diplom.yt_Button();
             this.SuspendLayout();
             // 
             // label1
@@ -158,7 +159,7 @@
             this.yt_Button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(79)))));
             this.yt_Button4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yt_Button4.ForeColor = System.Drawing.Color.White;
-            this.yt_Button4.Location = new System.Drawing.Point(114, 477);
+            this.yt_Button4.Location = new System.Drawing.Point(114, 562);
             this.yt_Button4.Name = "yt_Button4";
             this.yt_Button4.RoundingEnable = true;
             this.yt_Button4.Size = new System.Drawing.Size(100, 40);
@@ -192,12 +193,26 @@
             this.yt_Button6.Text = "Клиенты";
             this.yt_Button6.Click += new System.EventHandler(this.yt_Button6_Click);
             // 
-            // Form2
+            // yt_Button7
+            // 
+            this.yt_Button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(90)))), ((int)(((byte)(79)))));
+            this.yt_Button7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
+            this.yt_Button7.ForeColor = System.Drawing.Color.White;
+            this.yt_Button7.Location = new System.Drawing.Point(64, 460);
+            this.yt_Button7.Name = "yt_Button7";
+            this.yt_Button7.RoundingEnable = true;
+            this.yt_Button7.Size = new System.Drawing.Size(202, 54);
+            this.yt_Button7.TabIndex = 17;
+            this.yt_Button7.Text = "Аналитика";
+            this.yt_Button7.Click += new System.EventHandler(this.yt_Button7_Click);
+            // 
+            // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(332, 549);
+            this.ClientSize = new System.Drawing.Size(332, 650);
+            this.Controls.Add(this.yt_Button7);
             this.Controls.Add(this.yt_Button6);
             this.Controls.Add(this.yt_Button5);
             this.Controls.Add(this.yt_Button4);
@@ -211,7 +226,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form2";
+            this.Name = "Menu";
             this.Text = "Меню";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
@@ -233,5 +248,6 @@
         private yt_Button yt_Button4;
         private yt_Button yt_Button5;
         private yt_Button yt_Button6;
+        private yt_Button yt_Button7;
     }
 }

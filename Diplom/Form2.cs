@@ -169,6 +169,8 @@ namespace Diplom
             Vremonte();
             Open();
             All();
+            avg();
+            price();
          //   GetListTest();
             //Указываем, что источником данных ДатаГрида является bindingsource, возвращённый из метода класса 
             // dataGridView1.DataSource = ControlData.GetListUsersAnalitic();
@@ -292,7 +294,24 @@ namespace Diplom
             // закрываем подключение к БД
             conn.Close();
         }
-        private void yt_Button1_Click(object sender, EventArgs e)
+        private void avg()
+        {
+            string i_cause = dateTimePicker1.Text;
+            string i_cause2 = dateTimePicker2.Text;
+            string master = comboBox1.Text;
+            conn.Open();
+            string sql_list_users = $"SELECT round(AVG(price)) FROM zakaz WHERE executor ='{master}' AND cause BETWEEN '{i_cause}' AND '{i_cause2}'";
+            MySqlCommand command = new MySqlCommand(sql_list_users, conn);
+            // выполняем запрос
+            MySqlDataReader reader_list = command.ExecuteReader();
+            while (reader_list.Read())
+            {
+                label12.Text = (reader_list[0].ToString() + " рублей");
+            }
+            // закрываем подключение к БД
+            conn.Close();
+        }
+        private void price()
         {
             string i_cause = dateTimePicker1.Text;
             string i_cause2 = dateTimePicker2.Text;
@@ -312,6 +331,10 @@ namespace Diplom
 
             conn.Close();
         }
+        private void yt_Button1_Click(object sender, EventArgs e)
+        {
+           
+        }
 
        
 
@@ -322,6 +345,8 @@ namespace Diplom
             Vremonte();
             Open();
             All();
+            avg();
+            price();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

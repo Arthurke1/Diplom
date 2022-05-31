@@ -47,14 +47,14 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.yt_Button3 = new Diplom.yt_Button();
             this.konfFormStyle1 = new Diplom.konfFormStyle(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -66,7 +66,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(341, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(969, 426);
+            this.dataGridView1.Size = new System.Drawing.Size(1143, 426);
             this.dataGridView1.TabIndex = 0;
             // 
             // label1
@@ -229,6 +229,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Статистика";
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(69, 174);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(41, 13);
+            this.label20.TabIndex = 25;
+            this.label20.Text = "label20";
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -255,6 +264,15 @@
             this.label16.Size = new System.Drawing.Size(41, 13);
             this.label16.TabIndex = 23;
             this.label16.Text = "label16";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 174);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(64, 13);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "Ждет ЗИП:";
             // 
             // label15
             // 
@@ -283,32 +301,14 @@
             this.label13.TabIndex = 20;
             this.label13.Text = "Диагностика:";
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 174);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(64, 13);
-            this.label19.TabIndex = 22;
-            this.label19.Text = "Ждет ЗИП:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(69, 174);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(41, 13);
-            this.label20.TabIndex = 25;
-            this.label20.Text = "label20";
-            // 
             // yt_Button3
             // 
             this.yt_Button3.BackColor = System.Drawing.Color.CornflowerBlue;
             this.yt_Button3.ForeColor = System.Drawing.Color.White;
-            this.yt_Button3.Location = new System.Drawing.Point(108, 408);
+            this.yt_Button3.Location = new System.Drawing.Point(104, 400);
             this.yt_Button3.Name = "yt_Button3";
-            this.yt_Button3.RoundingEnable = false;
-            this.yt_Button3.Size = new System.Drawing.Size(100, 22);
+            this.yt_Button3.RoundingEnable = true;
+            this.yt_Button3.Size = new System.Drawing.Size(113, 30);
             this.yt_Button3.TabIndex = 11;
             this.yt_Button3.Text = "Посчитать";
             this.yt_Button3.Click += new System.EventHandler(this.yt_Button3_Click);
@@ -321,11 +321,11 @@
             this.konfFormStyle1.Form = this;
             this.konfFormStyle1.FormStyle = Diplom.konfFormStyle.fStyle.none;
             // 
-            // Form2
+            // Stats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1322, 450);
+            this.ClientSize = new System.Drawing.Size(1496, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
@@ -335,7 +335,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form2";
+            this.Name = "Stats";
             this.Text = "Анализ";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

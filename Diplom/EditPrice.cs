@@ -20,7 +20,7 @@ namespace Diplom
             //Открываем соединение
             conn.Open();
             //Меняем на форме название, с указанием того студента, которого хотим изменить
-            this.Text = $"Меняем пользователя ID: {ControlData.id_price}";
+            this.Text = $"Меняем услугу ID: {ControlData.id_price}";
             //Объявляем запрос на вывод данных из таблицы в поля
             string sql_select_current_stud = $"SELECT job, time, norma, price FROM price WHERE id_price = {ControlData.id_price}";
             // объект для выполнения SQL-запроса

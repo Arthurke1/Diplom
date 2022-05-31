@@ -190,7 +190,7 @@
             this.Controls.Add(this.textBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddRole";
-            this.Text = "Добалвение пользователя";
+            this.Text = "Добавление пользователя";
             this.Load += new System.EventHandler(this.Form10_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

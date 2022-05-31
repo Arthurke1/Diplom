@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace Diplom
 {
-    public partial class Form2 : Form
+    public partial class Stats : Form
     {
         ////Переменная соединения
         //MySqlConnection conn;
@@ -45,7 +45,7 @@ namespace Diplom
         string id_selected_rows = "0";
         string connStr = "server=chuc.caseum.ru;port=33333;user=st_1_18_3;database=is_1_18_st3_VKR;password=77651256;";
 
-        public Form2()
+        public Stats()
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#EAE7DC");
@@ -171,7 +171,12 @@ namespace Diplom
             All();
             avg();
             price();
-         //   GetListTest();
+            diagnost();
+            Ready();
+            Issued();
+            Wait();
+
+            //   GetListTest();
             //Указываем, что источником данных ДатаГрида является bindingsource, возвращённый из метода класса 
             // dataGridView1.DataSource = ControlData.GetListUsersAnalitic();
 
@@ -331,6 +336,87 @@ namespace Diplom
 
             conn.Close();
         }
+        private void diagnost()
+        {
+            string i_cause = dateTimePicker1.Text;
+            string i_cause2 = dateTimePicker2.Text;
+            string master = comboBox1.Text;
+            conn.Open();
+            // Запрос на счет
+            string sql_list_users = $"SELECT COUNT(status) FROM zakaz WHERE  executor ='{master}' AND status ='Диагностика' AND cause  BETWEEN '{i_cause}' AND '{i_cause2}'";
+            // объект для выполнения SQL-запроса
+            MySqlCommand command = new MySqlCommand(sql_list_users, conn);
+            // выполняем запрос
+            MySqlDataReader reader_list = command.ExecuteReader();
+            while (reader_list.Read())
+            {
+                label16.Text = (reader_list[0].ToString() + " заказов");
+            }
+            // закрываем подключение к БД
+
+            conn.Close();
+        }
+        private void Ready()
+        {
+            string i_cause = dateTimePicker1.Text;
+            string i_cause2 = dateTimePicker2.Text;
+            string master = comboBox1.Text;
+            conn.Open();
+            // Запрос на счет
+            string sql_list_users = $"SELECT COUNT(status) FROM zakaz WHERE  executor ='{master}' AND status ='Готов' AND cause  BETWEEN '{i_cause}' AND '{i_cause2}'";
+            // объект для выполнения SQL-запроса
+            MySqlCommand command = new MySqlCommand(sql_list_users, conn);
+            // выполняем запрос
+            MySqlDataReader reader_list = command.ExecuteReader();
+            while (reader_list.Read())
+            {
+                label17.Text = (reader_list[0].ToString() + " заказов");
+            }
+            // закрываем подключение к БД
+
+            conn.Close();
+        }
+        private void Issued()
+        {
+            string i_cause = dateTimePicker1.Text;
+            string i_cause2 = dateTimePicker2.Text;
+            string master = comboBox1.Text;
+            conn.Open();
+            // Запрос на счет
+            string sql_list_users = $"SELECT COUNT(status) FROM zakaz WHERE  executor ='{master}' AND status ='Выдан' AND cause  BETWEEN '{i_cause}' AND '{i_cause2}'";
+            // объект для выполнения SQL-запроса
+            MySqlCommand command = new MySqlCommand(sql_list_users, conn);
+            // выполняем запрос
+            MySqlDataReader reader_list = command.ExecuteReader();
+            while (reader_list.Read())
+            {
+                label18.Text = (reader_list[0].ToString() + " заказов");
+            }
+            // закрываем подключение к БД
+
+            conn.Close();
+        }
+        private void Wait()
+        {
+            string i_cause = dateTimePicker1.Text;
+            string i_cause2 = dateTimePicker2.Text;
+            string master = comboBox1.Text;
+            conn.Open();
+            // Запрос на счет
+            string sql_list_users = $"SELECT COUNT(status) FROM zakaz WHERE  executor ='{master}' AND status ='Ждет ЗИП' AND cause  BETWEEN '{i_cause}' AND '{i_cause2}'";
+            // объект для выполнения SQL-запроса
+            MySqlCommand command = new MySqlCommand(sql_list_users, conn);
+            // выполняем запрос
+            MySqlDataReader reader_list = command.ExecuteReader();
+            while (reader_list.Read())
+            {
+                label20.Text = (reader_list[0].ToString() + " заказов");
+            }
+            // закрываем подключение к БД
+
+            conn.Close();
+        }
+
         private void yt_Button1_Click(object sender, EventArgs e)
         {
            
@@ -347,6 +433,10 @@ namespace Diplom
             All();
             avg();
             price();
+            diagnost();
+            Ready();
+            Issued();
+            Wait();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

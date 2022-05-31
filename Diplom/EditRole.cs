@@ -40,7 +40,7 @@ namespace Diplom
                 textBox1.Text = reader[0].ToString();
                 textBox2.Text = reader[1].ToString();
                 textBox3.Text = reader[2].ToString();
-                textBox4.Text = reader[3].ToString();
+              comboBox1.Text = reader[3].ToString();
             }
             reader.Close(); // закрываем reader
             // закрываем соединение с БД
@@ -71,7 +71,7 @@ namespace Diplom
             string n_FIO = textBox1.Text;
             string n_login = textBox2.Text;
             string n_password = textBox3.Text;
-            string n_role = textBox4.Text;
+            string n_role = comboBox1.Text;
             //Формируем запрос на изменение
             string sql_update_current_stud = $"UPDATE auth SET FIO='{n_FIO}', login='{n_login}', password='{n_password}', role='{n_role}'" +
                 $"WHERE (id='{ControlData.id_role}')";
@@ -84,14 +84,15 @@ namespace Diplom
             // закрываем подключение к БД
             conn.Close();
             //Закрываем форму
+            MessageBox.Show("Успешно изменен!");
             this.Close();
             reload_list();
         }
 
-        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        private void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
-            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44 && number != ' ') //цифры, клавиша BackSpace и запятая а ASCII
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 46 && number != ' ') //цифры, клавиша BackSpace и запятая а ASCII
             {
                 e.Handled = true;
             }

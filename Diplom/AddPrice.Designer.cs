@@ -119,7 +119,7 @@
             // 
             this.yt_Button1.BackColor = System.Drawing.Color.Tomato;
             this.yt_Button1.ForeColor = System.Drawing.Color.White;
-            this.yt_Button1.Location = new System.Drawing.Point(81, 280);
+            this.yt_Button1.Location = new System.Drawing.Point(81, 272);
             this.yt_Button1.Name = "yt_Button1";
             this.yt_Button1.RoundingEnable = true;
             this.yt_Button1.Size = new System.Drawing.Size(126, 45);
@@ -135,11 +135,11 @@
             this.konfFormStyle1.Form = this;
             this.konfFormStyle1.FormStyle = Diplom.konfFormStyle.fStyle.none;
             // 
-            // Form8
+            // AddPrice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 346);
+            this.ClientSize = new System.Drawing.Size(318, 341);
             this.Controls.Add(this.yt_Button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -151,7 +151,7 @@
             this.Controls.Add(this.textBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form8";
+            this.Name = "AddPrice";
             this.Text = "Добавление работы\\услуги";
             this.Load += new System.EventHandler(this.Form8_Load);
             this.ResumeLayout(false);

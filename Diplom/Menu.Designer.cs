@@ -44,6 +44,7 @@
             this.yt_Button5 = new Diplom.yt_Button();
             this.yt_Button6 = new Diplom.yt_Button();
             this.yt_Button7 = new Diplom.yt_Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -206,6 +207,8 @@
             this.yt_Button7.Text = "Аналитика";
             this.yt_Button7.Click += new System.EventHandler(this.yt_Button7_Click);
             // 
+          
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,5 +252,6 @@
         private yt_Button yt_Button5;
         private yt_Button yt_Button6;
         private yt_Button yt_Button7;
+        private System.Windows.Forms.Timer timer1;
     }
 }

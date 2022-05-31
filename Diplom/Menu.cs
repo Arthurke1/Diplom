@@ -70,9 +70,36 @@ namespace Diplom
                 label2.Text = Auth.auth_fio;
                 //Вызываем метод управления ролями
                 ManagerRole(Auth.auth_role);
-        }
+       
+            //Сокрытие текущей формы
+            this.Hide();
+            //Инициализируем и вызываем форму диалога авторизации
+            Authorization authh = new Authorization();
+            //Вызов формы в режиме диалога
+            authh.ShowDialog();
+            //Если авторизации была успешна и в поле класса хранится истина, то делаем движуху:
+            if (Auth.auth)
+            {
+                //Отображаем рабочую форму
+                this.Show();
+                //Вытаскиваем из класса поля в label'ы
 
-      
+                label2.Text = Auth.auth_fio;
+               // label5.Text = "Авторизация успешна!";
+                //Красим текст в label в зелёный цвет
+                label1.Text = Auth.auth_id;
+                //Вызываем метод управления ролями
+                ManagerRole(Auth.auth_role);
+            }
+            //иначе
+            else
+            {
+                //Закрываем форму
+                this.Close();
+            }
+        }
+       
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -122,8 +149,10 @@ namespace Diplom
         private void yt_Button7_Click(object sender, EventArgs e)
         {
             // переход на другую форму
-            Form2 frm = new Form2();
+            Stats frm = new Stats();
             frm.Show();
         }
+
+      
     }
 }

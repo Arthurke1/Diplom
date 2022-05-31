@@ -1,6 +1,6 @@
 ﻿namespace Diplom
 {
-    partial class Form2
+    partial class Stats
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stats));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -38,7 +38,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.yt_Button3 = new Diplom.yt_Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -47,8 +46,17 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.konfFormStyle1 = new Diplom.konfFormStyle(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.yt_Button3 = new Diplom.yt_Button();
+            this.konfFormStyle1 = new Diplom.konfFormStyle(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -122,18 +130,6 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "label4";
             // 
-            // yt_Button3
-            // 
-            this.yt_Button3.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.yt_Button3.ForeColor = System.Drawing.Color.White;
-            this.yt_Button3.Location = new System.Drawing.Point(109, 314);
-            this.yt_Button3.Name = "yt_Button3";
-            this.yt_Button3.RoundingEnable = false;
-            this.yt_Button3.Size = new System.Drawing.Size(100, 30);
-            this.yt_Button3.TabIndex = 11;
-            this.yt_Button3.Text = "Посчитать";
-            this.yt_Button3.Click += new System.EventHandler(this.yt_Button3_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -173,7 +169,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 105);
+            this.label9.Location = new System.Drawing.Point(6, 197);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(203, 13);
             this.label9.TabIndex = 16;
@@ -182,7 +178,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(216, 105);
+            this.label10.Location = new System.Drawing.Point(216, 197);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 13);
             this.label10.TabIndex = 17;
@@ -191,7 +187,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 131);
+            this.label11.Location = new System.Drawing.Point(6, 223);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(155, 13);
             this.label11.TabIndex = 18;
@@ -200,22 +196,22 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(169, 131);
+            this.label12.Location = new System.Drawing.Point(169, 223);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 13);
             this.label12.TabIndex = 19;
             this.label12.Text = "label12";
             // 
-            // konfFormStyle1
-            // 
-            this.konfFormStyle1.AllowUserResize = false;
-            this.konfFormStyle1.ContextMenuForm = null;
-            this.konfFormStyle1.ControlBoxButtonsWidth = 28;
-            this.konfFormStyle1.Form = this;
-            this.konfFormStyle1.FormStyle = Diplom.konfFormStyle.fStyle.none;
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label4);
@@ -228,10 +224,102 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(12, 140);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(305, 155);
+            this.groupBox1.Size = new System.Drawing.Size(305, 254);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Статистика";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(69, 152);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(41, 13);
+            this.label18.TabIndex = 25;
+            this.label18.Text = "label18";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(69, 128);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 13);
+            this.label17.TabIndex = 24;
+            this.label17.Text = "label17";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(89, 103);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(41, 13);
+            this.label16.TabIndex = 23;
+            this.label16.Text = "label16";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 152);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(57, 13);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "Выданые:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 128);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 13);
+            this.label14.TabIndex = 21;
+            this.label14.Text = "Готовые:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 103);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(77, 13);
+            this.label13.TabIndex = 20;
+            this.label13.Text = "Диагностика:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 174);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(64, 13);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "Ждет ЗИП:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(69, 174);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(41, 13);
+            this.label20.TabIndex = 25;
+            this.label20.Text = "label20";
+            // 
+            // yt_Button3
+            // 
+            this.yt_Button3.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.yt_Button3.ForeColor = System.Drawing.Color.White;
+            this.yt_Button3.Location = new System.Drawing.Point(108, 408);
+            this.yt_Button3.Name = "yt_Button3";
+            this.yt_Button3.RoundingEnable = false;
+            this.yt_Button3.Size = new System.Drawing.Size(100, 22);
+            this.yt_Button3.TabIndex = 11;
+            this.yt_Button3.Text = "Посчитать";
+            this.yt_Button3.Click += new System.EventHandler(this.yt_Button3_Click);
+            // 
+            // konfFormStyle1
+            // 
+            this.konfFormStyle1.AllowUserResize = false;
+            this.konfFormStyle1.ContextMenuForm = null;
+            this.konfFormStyle1.ControlBoxButtonsWidth = 28;
+            this.konfFormStyle1.Form = this;
+            this.konfFormStyle1.FormStyle = Diplom.konfFormStyle.fStyle.none;
             // 
             // Form2
             // 
@@ -279,5 +367,13 @@
         private System.Windows.Forms.Label label12;
         private konfFormStyle konfFormStyle1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
     }
 }

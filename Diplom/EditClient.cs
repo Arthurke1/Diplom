@@ -98,7 +98,7 @@ namespace Diplom
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
-            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44 && number != ' ') //цифры, клавиша BackSpace и запятая а ASCII
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 46 && number != ' ') //цифры, клавиша BackSpace и запятая а ASCII
             {
                 e.Handled = true;
             }
@@ -107,7 +107,7 @@ namespace Diplom
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
-            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44 && number !=  ' ' ) //цифры, клавиша BackSpace и запятая а ASCII
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 46 && number !=  ' ' ) //цифры, клавиша BackSpace и запятая а ASCII
             {
                 e.Handled = true;
             }

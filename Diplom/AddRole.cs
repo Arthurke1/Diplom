@@ -29,7 +29,7 @@ namespace Diplom
             conn.Open();
             // запросы
             // запрос вставки данных
-            string query = $"INSERT INTO auth (fio, login, password, role) VALUES ('{i_fio}', '{i_login}', '{i_password}', '{i_role}')";
+            string query = $"INSERT I INTO auth (fio, login, password, role) VALUES ('{i_fio}', '{i_login}', '{i_password}', '{i_role}')";
             try
             {
                 // объект для выполнения SQL-запроса
@@ -82,7 +82,7 @@ namespace Diplom
             string i_fio = textBox1.Text;
             string i_login = textBox2.Text;
             string i_password = textBox3.Text;
-            string i_role = textBox4.Text;
+            string i_role = comboBox1.Text;
       
             //Если метод вставки записи в БД вернёт истину, то просто обновим список и увидим вставленное значение
             if (InsertPrepods(i_fio, i_login, i_password, i_role))
@@ -92,7 +92,7 @@ namespace Diplom
             //Иначе произошла какая то ошибка и покажем пользователю уведомление
             else
             {
-                MessageBox.Show("Произошла ошибка.", "Ошибка");
+                MessageBox.Show("Такой пользователь существует.", "Ошибка");
             }
             ReloadRoleList();
             //Закрываем форму
@@ -108,10 +108,17 @@ namespace Diplom
             }
         }
 
-        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+       
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
-            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44) //цифры, клавиша BackSpace и запятая а ASCII
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 46) //цифры, клавиша BackSpace и запятая а ASCII
             {
                 e.Handled = true;
             }

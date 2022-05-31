@@ -269,7 +269,7 @@ namespace Diplom
             // устанавливаем соединение с БД
             conn.Open();
             //Запрос для вывода строк в БД
-            string commandStr = "SELECT id AS 'Код', fio AS 'ФИО', login AS 'Логин', password AS 'Пароль', role AS 'Уровень доступа' FROM auth";
+            string commandStr = "SELECT id AS 'Код', fio AS 'ФИО', login AS 'Логин', role AS 'Уровень доступа' FROM auth";
             //Объявляем команду, которая выполнить запрос в соединении conn
             MyDA.SelectCommand = new MySqlCommand(commandStr, conn);
             //Заполняем таблицу записями из БД

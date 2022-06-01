@@ -15,8 +15,11 @@ namespace Diplom
     {
         //Переменная для ID записи в БД, выбранной в гриде. Пока она не содердит значения, лучше его инициализировать с 0
         //что бы в БД не отправлялся null
+
         string id_selected_rows = "0";
+        static readonly string connStr = $"server=chuc.caseum.ru;port=33333;user=st_1_18_3;database=is_1_18_st3_VKR;password=77651256;";
         DataTable dbdataset;
+        MySqlConnection conn = new MySqlConnection(connStr);
         //Метод получения ID выделенной строки, для последующего вызова его в нужных методах
         public void GetSelectedIDString()
         {
@@ -53,6 +56,10 @@ namespace Diplom
             //dataGridView1.CurrentRow.Selected = true;
             //Метод получения ID выделенной строки в глобальную переменную
             GetSelectedIDString();
+            listBox1.Items.Clear();
+            int count_rows = dataGridView1.RowCount - 1;
+            toolStripLabel2.Text = (count_rows).ToString();
+            GetListOrder(count_rows);
         }
 
         //Метод обновления DataGreed
@@ -148,37 +155,35 @@ namespace Diplom
             
         }
 
-        //Метод изменения цвета строк, в зависимости от значения поля записи в таблице
-        //private void ChangeColorDGV()
-        //{
-        //    //Отражаем количество записей в ДатаГриде
-        //    int count_rows = dataGridView1.RowCount - 1;
-        //    toolStripLabel2.Text = (count_rows).ToString();
-        //    //Проходимся по ДатаГриду и красим строки в нужные нам цвета, в зависимости от статуса студента
-        //    for (int i = 0; i < count_rows; i++)
-        //    {
-
-        //        //статус конкретного студента в Базе данных, на основании индекса строки
-        //        int id_selected_status = Convert.ToInt32(dataGridView1.Rows[i].Cells[4].Value);
-        //        //Логический блок для определения цветности
-        //        if (id_selected_status == 1)
-        //        {
-        //            //Красим в красный
-        //            dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-        //        }
-        //        if (id_selected_status == 2)
-        //        {
-        //            //Красим в зелёный
-        //            dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Green;
-        //        }
-        //        if (id_selected_status == 3)
-        //        {
-        //            //Красим в желтый
-        //            dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
-        //        }
-        //    }
-        //}
-       
+        //Вывод данных из БД в listBox1
+        private void GetListOrder(int id_cpu)
+        {
+            conn.Open();
+            //Строка запроса
+            string commandStr = "SELECT * FROM zakaz WHERE id_order = " + id_selected_rows.ToString();
+            //Команда для получения списка
+            MySqlCommand cmd_get_list = new MySqlCommand(commandStr, conn);
+            //Ридер для хранения списка строк
+            MySqlDataReader reader_list = cmd_get_list.ExecuteReader();
+            //Читаем ридер
+            while (reader_list.Read())
+            {
+                listBox1.Items.Add("Статус: " + reader_list[1].ToString());
+                listBox1.Items.Add("ФИО: " + reader_list[2].ToString());
+                listBox1.Items.Add("Номер телефона: " + reader_list[3].ToString());
+                listBox1.Items.Add("Исполнитель: " + reader_list[4].ToString());
+                listBox1.Items.Add("Стоимость: " + reader_list[5].ToString() + " рублей");
+                listBox1.Items.Add("Дата приема: " + reader_list[6].ToString());
+                listBox1.Items.Add("IMEI: " + reader_list[7].ToString());
+                listBox1.Items.Add("Состояние: " + reader_list[8].ToString());
+                listBox1.Items.Add("Название бренда: " + reader_list[9].ToString());
+                listBox1.Items.Add("Тип устройства: " + reader_list[10].ToString());
+                listBox1.Items.Add("Комментарий: " + reader_list[11].ToString());
+                listBox1.Items.Add("Модель: " + reader_list[12].ToString());
+            }
+            reader_list.Close();
+            conn.Close();
+        }
         //Кнопка удаления записи 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {           
@@ -252,7 +257,12 @@ namespace Diplom
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
 
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
             
         }
     }

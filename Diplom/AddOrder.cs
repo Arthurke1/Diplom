@@ -668,64 +668,64 @@ namespace Diplom
             ControlData.GetListUsers();      
         }
         
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Объявляем переменные для вставки в БД
-            string i_status = textBox1.Text;
-            string i_FIO = textBox2.Text;
-            string i_numberphone = textBox3.Text;
-            string i_executor = comboBox4.Text;
-            string i_price = textBox5.Text;
-            string i_cause = dateTimePicker1.Text;
-            //string i_cause = textBox6.Text;
-            string i_imei = textBox7.Text;
-            string i_conditione = comboBox1.Text;
-            string i_deivice = comboBox3.Text;
-            string i_type_device = comboBox2.Text;
-            string i_comm = textBox11.Text;
-            string i_model = textBox8.Text;
-            string i_password = textBox6.Text;
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    //Объявляем переменные для вставки в БД
+        //    string i_status = textBox1.Text;
+        //    string i_FIO = textBox2.Text;
+        //    string i_numberphone = textBox3.Text;
+        //    string i_executor = comboBox4.Text;
+        //    string i_price = textBox5.Text;
+        //    string i_cause = dateTimePicker1.Text;
+        //    //string i_cause = textBox6.Text;
+        //    string i_imei = textBox7.Text;
+        //    string i_conditione = comboBox1.Text;
+        //    string i_deivice = comboBox3.Text;
+        //    string i_type_device = comboBox2.Text;
+        //    string i_comm = textBox11.Text;
+        //    string i_model = textBox8.Text;
+        //    string i_password = textBox6.Text;
 
-            string query = $"INSERT INTO zakaz (status, FIO, numberphone, executor, price, cause, IMEI, conditione, device, type_device, comm, model) VALUES ('{i_status}', '{i_FIO}', '{i_numberphone}', '{i_executor}', '{i_price}', '{i_cause}', '{i_imei}', '{i_conditione}', '{i_deivice}', '{i_type_device}', '{i_comm}', '{i_model}');" +
-                $"SELECT id_order FROM zakaz WHERE (id_order = LAST_INSERT_ID());" +
-                $" INSERT INTO client (FIO, numberphone, password) VALUES('{i_FIO}','{i_numberphone}','{i_password}');";
+        //    string query = $"INSERT INTO zakaz (status, FIO, numberphone, executor, price, cause, IMEI, conditione, device, type_device, comm, model) VALUES ('{i_status}', '{i_FIO}', '{i_numberphone}', '{i_executor}', '{i_price}', '{i_cause}', '{i_imei}', '{i_conditione}', '{i_deivice}', '{i_type_device}', '{i_comm}', '{i_model}');" +
+        //        $"SELECT id_order FROM zakaz WHERE (id_order = LAST_INSERT_ID());" +
+        //        $" INSERT INTO client (FIO, numberphone, password) VALUES('{i_FIO}','{i_numberphone}','{i_password}');";
                 
        
-            // устанавливаем соединение с БД
-            conn.Open();
-            // объект для выполнения SQL-запроса
-            MySqlCommand command = new MySqlCommand(query, conn);
-            // выполняем запрос
-            string id_insert_client = command.ExecuteScalar().ToString();
-            SomeClass.new_inserted_id = id_insert_client;
-            MessageBox.Show("Заказ успешно добавлен!");
-            // закрываем подключение к БД
-            conn.Close();
-            //Закрываем форму
-            this.Close();
+        //    // устанавливаем соединение с БД
+        //    conn.Open();
+        //    // объект для выполнения SQL-запроса
+        //    MySqlCommand command = new MySqlCommand(query, conn);
+        //    // выполняем запрос
+        //    string id_insert_client = command.ExecuteScalar().ToString();
+        //    SomeClass.new_inserted_id = id_insert_client;
+        //    MessageBox.Show("Заказ успешно добавлен!");
+        //    // закрываем подключение к БД
+        //    conn.Close();
+        //    //Закрываем форму
+        //    this.Close();
 
 
-            SomeClass.variable_class1 = i_cause;
-            SomeClass.variable_class2 = i_FIO;
-            SomeClass.variable_class3 = i_numberphone;
-            SomeClass.variable_class4 = i_executor;
-            SomeClass.variable_class5 = i_price;
-            SomeClass.variable_class6 = i_cause;
-            SomeClass.variable_class7 = i_imei;
-            SomeClass.variable_class8 = i_conditione;
-            SomeClass.variable_class9 = i_deivice;
-            SomeClass.variable_class10 = i_type_device;
-            SomeClass.variable_class11 = i_comm;
-            SomeClass.variable_class12 = i_model;
+        //    SomeClass.variable_class1 = i_cause;
+        //    SomeClass.variable_class2 = i_FIO;
+        //    SomeClass.variable_class3 = i_numberphone;
+        //    SomeClass.variable_class4 = i_executor;
+        //    SomeClass.variable_class5 = i_price;
+        //    SomeClass.variable_class6 = i_cause;
+        //    SomeClass.variable_class7 = i_imei;
+        //    SomeClass.variable_class8 = i_conditione;
+        //    SomeClass.variable_class9 = i_deivice;
+        //    SomeClass.variable_class10 = i_type_device;
+        //    SomeClass.variable_class11 = i_comm;
+        //    SomeClass.variable_class12 = i_model;
            
            
-            reload_list();
-            CreateAkt frm = new CreateAkt();
-            frm.Show();
+        //    reload_list();
+        //    CreateAkt frm = new CreateAkt();
+        //    frm.Show();
            
            
 
-        }
+        //}
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -854,7 +854,7 @@ namespace Diplom
             // выполняем запрос
             string id_insert_client = command.ExecuteScalar().ToString();
             SomeClass.new_inserted_id = id_insert_client;
-            MessageBox.Show($"ID нового клиента {id_insert_client}");
+            MessageBox.Show($"Заказ успешно добавлен!");
             // закрываем подключение к БД
             conn.Close();
             //Закрываем форму
